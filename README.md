@@ -1,4 +1,4 @@
-# school_docs — 곰지의 문서 도구
+# 곰지의 문서 정리기
 
 [![Latest release](https://img.shields.io/github/v/release/bebegomzi/school_docs_release?label=latest&color=3651d4)](https://github.com/bebegomzi/school_docs_release/releases/latest)
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4)
@@ -16,7 +16,7 @@ PDF 편집과 서명, 개인정보 가리기, 분할·생성, 암호 관리, 일
 
 | 항목 | 상태 |
 | --- | --- |
-| 최신 정식 버전 | **v4.2.3** |
+| 최신 정식 버전 | **v4.2.4** |
 | 지원 환경 | Windows 10·11 x64 |
 | 배포 형태 | 설치 프로그램 없이 압축을 풀어 실행하는 portable 앱 |
 | OCR 엔진 | PaddleOCR PP-OCRv5 한국어 모델 |
@@ -54,7 +54,12 @@ PDF 편집과 서명, 개인정보 가리기, 분할·생성, 암호 관리, 일
 
 편집 창과 개인정보 검토 창에서는 버튼 또는 `Ctrl+마우스 휠`로 확대·축소할 수 있으며, `Shift+휠`로 좌우 이동할 수 있습니다.
 
-## v4.2.3 핵심 개선
+## v4.2.4 핵심 개선
+
+- 프로그램 공식 이름을 **곰지의 문서 정리기**로 통일하고 업데이트 확인 버튼과 새 버전 강조 표시를 개선했습니다.
+- PDF 편집의 `글자 수정`은 선택한 글자 옆에서 바로 입력하고 실시간으로 결과를 미리 볼 수 있습니다.
+- 페이지별 OCR 결과를 유지하고, 이미지·스캔이 섞인 페이지에서는 OCR 실행 여부를 먼저 묻습니다.
+- 개인정보 가리기에서 `생년월일` 머리글과 인접한 날짜를 찾고 일반 기간 날짜의 오탐을 줄였습니다.
 
 ### PaddleOCR 정식 전환
 
@@ -77,7 +82,7 @@ PDF 편집과 서명, 개인정보 가리기, 분할·생성, 암호 관리, 일
 - 현재 버전과 업데이트 확인 기능을 메인 화면 좌측 하단에 배치했습니다.
 - 업데이트 실패 시 이전 관리 파일을 자동 복구하며, 프로그램 폴더에 사용자가 따로 넣은 파일은 건드리지 않습니다.
 
-자세한 변경 사항은 [v4.2.3 릴리스 노트](https://github.com/bebegomzi/school_docs_release/releases/tag/v4.2.3)를 확인해 주세요.
+자세한 변경 사항은 [v4.2.4 릴리스 노트](https://github.com/bebegomzi/school_docs_release/releases/tag/v4.2.4)를 확인해 주세요.
 
 ## 설치 방법
 
@@ -134,7 +139,7 @@ Python을 별도로 설치할 필요는 없습니다. 프로그램 실행에 필
 Windows 기본 명령으로 체크섬을 확인하려면 압축 파일이 있는 폴더에서 다음 명령을 실행합니다.
 
 ```powershell
-certutil -hashfile school_docs-v4.2.3-win64.zip SHA256
+certutil -hashfile school_docs-v4.2.4-win64.zip SHA256
 ```
 
 출력된 값이 `.sha256` 파일의 값과 같으면 다운로드 파일이 정상입니다.
