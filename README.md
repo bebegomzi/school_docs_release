@@ -1,6 +1,6 @@
 # 곰지의 문서 정리기
 
-[![Latest release](https://img.shields.io/github/v/release/bebegomzi/school_docs_release?label=latest&color=3651d4)](https://github.com/bebegomzi/school_docs_release/releases/latest)
+[![Latest release](https://img.shields.io/github/v/release/conoms/school_docs_release?label=latest&color=3651d4)](https://github.com/conoms/school_docs_release/releases/latest)
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4)
 ![Local processing](https://img.shields.io/badge/document%20processing-local-1D9E75)
 
@@ -10,13 +10,15 @@ PDF 편집과 서명, 개인정보 가리기, 분할·생성, 암호 관리, 일
 
 > 이 저장소는 일반 사용자를 위한 **공개 배포 전용 저장소**입니다.
 >
-> 설치 파일, 체크섬, 버전별 변경 사항은 [Releases](https://github.com/bebegomzi/school_docs_release/releases)에서 확인할 수 있습니다.
+> 설치 파일, 체크섬, 버전별 변경 사항은 [Releases](https://github.com/conoms/school_docs_release/releases)에서 확인할 수 있습니다.
+>
+> **v4.3.0부터 Conoms 공동 저장소에서 개발·배포합니다.** 기존 `bebegomzi` 배포 저장소의 v4.2.8은 이전 설치본을 이 저장소로 연결하는 마지막 이주용 버전입니다.
 
 ## 현재 개발 상태
 
 | 항목 | 상태 |
 | --- | --- |
-| 최신 정식 버전 | **v4.2.7** |
+| 최신 정식 버전 | **v4.3.0** |
 | 지원 환경 | Windows 10·11 x64 |
 | 배포 형태 | 설치 프로그램 없이 압축을 풀어 실행하는 portable 앱 |
 | OCR 엔진 | PaddleOCR PP-OCRv5 한국어 모델 |
@@ -33,7 +35,7 @@ PDF 편집과 서명, 개인정보 가리기, 분할·생성, 암호 관리, 일
 - ✅ 복합 양식 대응을 위해 Tesseract에서 PaddleOCR PP-OCRv5로 전환
 - ✅ 작은 화면·고해상도 배율 대응과 편집/검토 뷰어 확대·축소 지원
 - ✅ v4.2.3부터 버전 표시, 수동 확인, 제자리 업데이트와 실패 시 자동 복구 지원
-- ✅ 학교생활기록부·재직증명서 양식 분석, 학생별 분리 저장과 파일명 복원 지원
+- ✅ 학교생활기록부·재직증명서·주민등록표 등본·초본 양식 분석, 학생별 분리 저장과 파일명 복원 지원
 - 🔄 실제 학교 문서 피드백을 바탕으로 OCR 후보 품질과 개인정보 검토 흐름을 계속 보정 중
 - 🔄 Windows 보안 환경에서 압축 해제·실행 오류를 줄이기 위한 패키징 검증 지속
 
@@ -44,7 +46,7 @@ PDF 편집과 서명, 개인정보 가리기, 분할·생성, 암호 관리, 일
 | ✍️ PDF 편집·서명 | 인식된 글자 수정, 원하는 영역에 글자 덮어쓰기, 빈 영역 마스킹, 서명·도장 추가 |
 | 🧭 페이지 편집 | 페이지 번호 이동, 삭제·추출·회전, 순서 변경, 여러 페이지 선택 |
 | 🔎 인쇄체 OCR | 스캔 PDF와 이미지의 인쇄 글자를 PaddleOCR로 인식하여 편집 후보로 표시 |
-| 🛡️ 개인정보 가리기 | 이름·학번·전화번호·전자우편·명단 값을 찾고, 학교생활기록부·재직증명서 양식도 분석한 뒤 실제 PDF redaction으로 제거 |
+| 🛡️ 개인정보 가리기 | 이름·학번·전화번호·전자우편·명단 값을 찾고, 학교생활기록부·재직증명서·주민등록표 등본·초본 양식도 분석한 뒤 실제 PDF redaction으로 제거 |
 | 📋 명단 대조 | XLSX·CSV 명단과 직접 입력값을 PDF 전체에서 찾아 개인정보 후보로 제안 |
 | ✂️ PDF 분할 | 일정 쪽수 또는 지정 범위로 PDF 분리 |
 | 📎 PDF 생성 | PDF·이미지·오피스 문서를 원하는 순서로 하나의 PDF로 생성 |
@@ -55,7 +57,20 @@ PDF 편집과 서명, 개인정보 가리기, 분할·생성, 암호 관리, 일
 
 편집 창과 개인정보 검토 창에서는 버튼, `Ctrl+마우스 휠` 또는 트랙패드 핀치로 확대·축소할 수 있으며, `Shift+휠`로 좌우 이동할 수 있습니다.
 
-## v4.2.7 핵심 개선
+## v4.3.0 핵심 개선
+
+- 공식 소스와 공개 배포 저장소를 Conoms 공동 개발 조직으로 이전했습니다.
+- 학교생활기록부의 일반·정부24 양식을 함께 감지하고, 신청인·학생 구간·반복 머리글을 양식에 맞게 분석합니다.
+- 주민등록표 등본·초본을 자동 감지하고, 표의 항목별 개인정보 후보를 검토할 수 있습니다.
+- 순수 스캔 PDF의 OCR 재분석 안내, 분석 없이 수동 편집, 일정 쪽수 간격 반복 마스킹을 지원합니다.
+- 개인정보 편집창에서 진단 정보를 저장할 수 있으며 분석·저장 진행 상황을 단계와 백분율로 표시합니다.
+
+### v4.2.8 이주 브리지
+
+- 기존 `bebegomzi` 배포 저장소가 Conoms의 새 배포 저장소를 확인하도록 업데이트 경로를 전환했습니다.
+- v4.2.7 이하 사용자는 먼저 v4.2.8로 업데이트한 뒤 v4.3.0으로 한 번 더 업데이트하면 이후 버전을 계속 받을 수 있습니다.
+
+### v4.2.7 핵심 개선
 
 - Windows 다운로드 차단 자동 해제 범위를 `_internal`과 검증된 앱 관리 파일로 제한해, 설치 폴더에 사용자가 따로 둔 문서의 보안 표시는 건드리지 않습니다.
 - 수동 복구용 `school_docs 실행 오류 해결.cmd`도 같은 범위만 처리하도록 수정했습니다.
@@ -102,11 +117,11 @@ PDF 편집과 서명, 개인정보 가리기, 분할·생성, 암호 관리, 일
 - 현재 버전과 업데이트 확인 기능을 메인 화면 좌측 하단에 배치했습니다.
 - 업데이트 실패 시 이전 관리 파일을 자동 복구하며, 프로그램 폴더에 사용자가 따로 넣은 파일은 건드리지 않습니다.
 
-자세한 변경 사항은 [v4.2.7 릴리스 노트](https://github.com/bebegomzi/school_docs_release/releases/tag/v4.2.7)를 확인해 주세요.
+자세한 변경 사항은 [v4.3.0 릴리스 노트](https://github.com/conoms/school_docs_release/releases/tag/v4.3.0)를 확인해 주세요.
 
 ## 설치 방법
 
-1. [최신 릴리스](https://github.com/bebegomzi/school_docs_release/releases/latest)에서 `school_docs-vX.Y.Z-win64.zip`을 받습니다.
+1. [최신 릴리스](https://github.com/conoms/school_docs_release/releases/latest)에서 `school_docs-vX.Y.Z-win64.zip`을 받습니다.
 2. 가능하면 압축을 풀기 전에 ZIP 파일을 **우클릭 → 속성 → 차단 해제 → 적용**합니다.
 3. 압축을 풀고 `school_docs\school_docs.exe`를 실행합니다.
 4. 처음 실행할 때 Windows가 PC를 보호했다는 창이 나오면 **추가 정보 → 실행**을 선택합니다.
@@ -124,7 +139,7 @@ Python을 별도로 설치할 필요는 없습니다. 프로그램 실행에 필
 - ZIP과 SHA-256을 검증한 뒤 기존 `school_docs` 폴더의 프로그램 관리 파일만 교체합니다.
 - 새 버전이 정상 실행되지 않으면 백업한 이전 파일을 복구합니다.
 
-`v4.2.2` 이하 버전에는 이 업데이트 기능이 없으므로 `v4.2.3`을 한 번 직접 설치해야 합니다.
+`v4.2.2` 이하 버전에는 이 업데이트 기능이 없으므로 최신 버전을 한 번 직접 설치해야 합니다. v4.2.3~v4.2.7은 기존 저장소의 v4.2.8 브리지를 거쳐 v4.3.0 이상으로 이동합니다.
 
 ## 로컬 처리와 개인정보 보호
 
@@ -159,7 +174,7 @@ Python을 별도로 설치할 필요는 없습니다. 프로그램 실행에 필
 Windows 기본 명령으로 체크섬을 확인하려면 압축 파일이 있는 폴더에서 다음 명령을 실행합니다.
 
 ```powershell
-certutil -hashfile school_docs-v4.2.7-win64.zip SHA256
+certutil -hashfile school_docs-v4.3.0-win64.zip SHA256
 ```
 
 출력된 값이 `.sha256` 파일의 값과 같으면 다운로드 파일이 정상입니다.
